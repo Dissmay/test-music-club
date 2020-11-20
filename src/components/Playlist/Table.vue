@@ -41,26 +41,21 @@
 export default {
 computed:{
     playlists(){
-    return this.$store.getters.playlists
+        return this.$store.getters.playlists
     }
 },
-mounted(){
-    console.log(
-        encodeURIComponent('tania bowra')
-    );
-}
 }
 </script>
 
 <style lang="less" >
 table {
-font-family: arial, sans-serif;
-border-collapse: collapse;
-width: 100%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 td, th {
-border: 1px solid #dddddd;
-text-align: left;
-padding: 8px;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
 </style>

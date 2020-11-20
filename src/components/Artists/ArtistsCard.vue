@@ -18,8 +18,6 @@ export default {
 
 <style lang="less" scoped>
 .artists{
-    &__card{
-    }
     &__img{
         width: 100%;
     }

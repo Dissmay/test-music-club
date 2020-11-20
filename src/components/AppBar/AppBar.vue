@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import AppSearch from './AppSearch.vue'
+import AppSearch from './Search.vue'
 import Link from './Link.vue'
 import User from './User.vue'
 

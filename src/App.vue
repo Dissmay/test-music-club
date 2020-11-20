@@ -20,10 +20,10 @@
 
 <script>
 // @ is an alias to /src
-import NavigationDrawer from '@/components/NavigationDrawer/NavigationDrawer'
-import NavigationContent from '@/components/NavigationDrawer/NavigationContent.vue'
-import NavigationPrepend from '@/components/NavigationDrawer/NavigationPrepend.vue'
-import AppBar from './components/AppBar/AppBar.vue'
+import NavigationDrawer from '@/components/NavigationDrawer/Drawer.vue'
+import NavigationContent from '@/components/NavigationDrawer/Content.vue'
+import NavigationPrepend from '@/components/NavigationDrawer/Prepend.vue'
+import AppBar from '@/components/AppBar/AppBar.vue'
 export default {
 name: 'Home',
 components: {
@@ -42,8 +42,7 @@ data:()=>({
 methods:{
 },
 async mounted(){
-     this.$store.dispatch('getAccount')
-   
+    this.$store.dispatch('getAccount')
 }
 }
 </script>
