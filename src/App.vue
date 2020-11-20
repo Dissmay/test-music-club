@@ -1,32 +1,64 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+<!-- В данном приложении решил выбрать такую структуру. То есть, бар и навигацию спозиционировать абсолютом.
+а по центру контент (роуты) -->
+<div id="app">
+    <div id="appBar">
+        <app-bar></app-bar>
     </div>
-    <router-view/>
-  </div>
+    <div id="nav">
+        <navigation-drawer>
+            <navigation-prepend/>
+            <navigation-content :listLinks="links"  />
+            <navigation-content :listLinks="links" title="Плейлисты" />
+        </navigation-drawer>
+    </div>
+    <div id="contessnt">
+        <router-view/>
+    </div>
+</div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+// @ is an alias to /src
+import NavigationDrawer from '@/components/NavigationDrawer/NavigationDrawer'
+import NavigationContent from '@/components/NavigationDrawer/NavigationContent.vue'
+import NavigationPrepend from '@/components/NavigationDrawer/NavigationPrepend.vue'
+import AppBar from './components/AppBar/AppBar.vue'
+export default {
+name: 'Home',
+components: {
+    NavigationDrawer,
+    NavigationContent,
+    NavigationPrepend,
+    AppBar,
+},
+data:()=>({
+    links:[
+        {to:'/', title:'HOME', img:'https://i.ibb.co/F0Rn452/Discover.png'},
+        {to:'/artists', title:'Artists', img:'https://i.ibb.co/F0Rn452/Discover.png'},
+        {to:'tracks', title:'Треки', img:'https://i.ibb.co/F0Rn452/Discover.png'},
+    ]
+}),
+methods:{
+},
+async mounted(){
+     this.$store.dispatch('getAccount')
+   
 }
+}
+</script>
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+<style lang="less">
+#appBar{
+    position: absolute;
+    top: 0;
+    left: 169px;
+    right: 0;
+}
+#contessnt{
+    position: absolute;
+    top: 69px;
+    left: 169px;
+    right: 0;
 }
 </style>

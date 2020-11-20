@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <Table></Table>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import Table from '@/components/Playlist/Table'
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Table
+  },
+  methods:{
+  
+  },
+  mounted(){
+      if(this.$route.query['code']){
+        this.$store.dispatch('getToken')
+        .then(()=>{
+          this.$router.replace({'query': null});
+        })
+      }
+        
+
+    
+   
   }
 }
 </script>
